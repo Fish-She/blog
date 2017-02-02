@@ -1,0 +1,25 @@
+div.ui.grid.centered.two.column
+		div.one.wide.column
+		div.column.post-wide
+			div.ui.segment
+				div.ui.minimal.comments
+					h3.ui.dividing.header 留言
+					mixin comments(comment)
+						div.comment
+							span.avatar
+								img(src='/img/'+comment.author.avatar)
+							div.content
+								a.author(href='/posts?author='+comment.author._id) #{comment.author.name}
+								div.metadata
+									span.date #{comment.created_at}
+								div.text !{comment.content}
+								-if (user&&comment.author._id&&user._id.toString()===comment.author._id.toString())
+									div.actions
+										a.reply(href='/posts/'+post._id+'/comment/'+comment._id+'/remove') 删除
+					each comment in comments
+						+comments(comment)
+					-if (user)
+						form.ui.reply.form(method='post',action='/posts/'+post._id+'/comment')
+							div.field
+								textarea(name='content')
+							input.ui.icon.button(type='submit',value='留言')

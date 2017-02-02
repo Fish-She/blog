@@ -1,0 +1,15 @@
+extends ./layout.pug
+block content
+	div.ui.centered.grid
+		
+		div.column.wide-set
+			form.ui.form.segment(method="post")
+				div.field
+					div.ui.left.icon.input
+						i.user.icon
+						input(type="text",placeholder="用户名",name="name")
+				div.field
+					div.ui.left.icon.input
+						i.lock.icon
+						input(type="password",placeholder="密码",name="password")
+				input.ui.button.fluid(type="submit",value="登录")

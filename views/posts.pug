@@ -1,0 +1,6 @@
+extends ./layout.pug
+block content
+	include ./components/post-content.pug
+	each post in posts
+		+post-content(post)
+
