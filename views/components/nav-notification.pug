@@ -1,11 +1,11 @@
-div(class="ui grid")
-	
-	div(class="column")
+div.ui.grid
+	div.five.wide.column
+	div.six.wide.column
 		- if(success)
-			div(class="ui success message")
+			div.ui.success.message
 				<i class="close icon"></i>
 				p #{success}
 		- if(error)
-			div(class="ui error message")
+			div.ui.error.message
 				<i class="close icon"></i>
 				p #{error}
